@@ -1,0 +1,10 @@
+/* coded by Sofia Silva */
+.main-section header {
+  font-size: 30px;
+}
+pre, code {
+  background-color: #dedede;
+}
+p code {
+  font-weight: bold;
+}
