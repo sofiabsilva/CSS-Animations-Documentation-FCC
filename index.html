@@ -5,8 +5,8 @@
 <body>
     <nav id="navbar">
      <header><h1>CSS Animations</h1></header>
-        <a href="#introduction" class="nav-link">Introduction</a>
-        <a href="#keyframes" class="nav-link">Keyframes</a>
+        <a href="#Introduction" class="nav-link">Introduction</a>
+        <a href="#Keyframes" class="nav-link">Keyframes</a>
         <a href="#animation-name" class="nav-link">animation-name</a>
         <a href="#animation-duration" class="nav-link">animation-duration</a>
         <a href="#animation-timing-function" class="nav-link">animation-timing-function</a>
@@ -18,13 +18,13 @@
         <a href="#animation_property" class="nav-link">animation property</a>
     </nav>
   <main id="main-doc">
-     <section class="main-section" id="introduction">
+     <section class="main-section" id="Introduction">
       <header>Introduction</header>
       <p>CSS Animations is a module of CSS that lets you animate the values of CSS properties over time, using keyframes. The behavior of these keyframe animations can be controlled by specifying their timing function, duration, their number of repetitions, and other attributes.</p>
-       <p>The information on this doc should not be used alone, as some things have been left out. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">MDN Web Docs</a> for complete CSS Animation guide with practical examples</p>
+       <p>The information in this doc should not be used alone, as some things have been left out. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">MDN Web Docs</a> for complete CSS Animation guide with practical examples</p>
    </section>
-   <section class="main-section" id="keyframes">
-    <header> Keyframes</header>
+   <section class="main-section" id="Keyframes">
+    <header>Keyframes</header>
      <p>The <code>@keyframes</code> CSS at-rule controls the intermediate steps in a CSS animation sequence by defining styles for keyframes (or waypoints) along the animation sequence. This gives more control over the intermediate steps of the animation sequence than transitions.</p>
      <p>To use keyframes, create a <code>@keyframes</code> rule with a name that is then used by the animation-name property to match an animation to its keyframe declaration. Each <code>@keyframes</code> rule contains a style list of keyframe selectors, which specify percentages along the animation when the keyframe occurs, and a block containing the styles for that keyframe.</p>
 
@@ -192,36 +192,6 @@ animation-direction: unset;
       <code><strong>alternate-reverse</strong></code>
 <p>The animation reverses direction each cycle, with the first iteration being played backwards. The count to determinate if a cycle is even or odd starts at one.</p>
     </section>
-    <section class="main-section" id="animation-direction">
-      <header>animation-direction</header>
-      <p>The <code>animation-direction</code> CSS property specifies whether an animation should play forwards, backwards, or alternating back and forth.</p>
-      <pre><code>
-/* Single animation */
-animation-direction: normal;
-animation-direction: reverse;
-animation-direction: alternate;
-animation-direction: alternate-reverse;
-
-/* Multiple animations */
-animation-direction: normal, reverse;
-animation-direction: alternate, reverse, normal;
-
-/* Global values */
-animation-direction: inherit;
-animation-direction: initial;
-animation-direction: unset;
-
-</code></pre>
-    <h3>Values</h3>
-      <code><strong>normal</strong></code>
-     <p>The animation plays forwards each cycle. In other words, each time the animation cycles, the animation will reset to the beginning state and start over again. This is the default value.</p>
-      <code><strong>reverse</strong></code>
-<p> animation plays backwards each cycle. In other words, each time the animation cycles, the animation will reset to the end state and start over again. Animation steps are performed backwards, and timing functions are also reversed. For example, an ease-in timing function becomes ease-out.</p>
-      <code><strong>alternate</strong></code>
-<p>The animation reverses direction each cycle, with the first iteration being played forwards. The count to determine if a cycle is even or odd starts at one.</p>
-      <code><strong>alternate-reverse</strong></code>
-<p>The animation reverses direction each cycle, with the first iteration being played backwards. The count to determinate if a cycle is even or odd starts at one.</p>
-    </section>
     <section class="main-section" id="animation-fill-mode">
       <header>animation-fill-mode</header>
       <p>The <code>animation-direction</code> CSS property specifies whether an animation should play forwards, backwards, or alternating back and forth.</p>
@@ -309,3 +279,4 @@ animation: 3s slidein;
    </section>
   </main>
 </body>
+
