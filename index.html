@@ -1,0 +1,311 @@
+<head>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+     <header><h1>CSS Animations</h1></header>
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#keyframes" class="nav-link">Keyframes</a>
+        <a href="#animation-name" class="nav-link">animation-name</a>
+        <a href="#animation-duration" class="nav-link">animation-duration</a>
+        <a href="#animation-timing-function" class="nav-link">animation-timing-function</a>
+        <a href="#animation-delay" class="nav-link">animation-delay</a>
+        <a href="#animation-iteration-count" class="nav-link">animation-iteration-count</a>
+        <a href="#animation-direction" class="nav-link">animation-direction</a>
+        <a href="#animation-fill-mode" class="nav-link">animation-fill-mode</a>
+        <a href="#animation-play-state" class="nav-link">animation-play-state</a>
+        <a href="#animation_property" class="nav-link">animation property</a>
+    </nav>
+  <main id="main-doc">
+     <section class="main-section" id="introduction">
+      <header>Introduction</header>
+      <p>CSS Animations is a module of CSS that lets you animate the values of CSS properties over time, using keyframes. The behavior of these keyframe animations can be controlled by specifying their timing function, duration, their number of repetitions, and other attributes.</p>
+       <p>The information on this doc should not be used alone, as some things have been left out. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">MDN Web Docs</a> for complete CSS Animation guide with practical examples</p>
+   </section>
+   <section class="main-section" id="keyframes">
+    <header> Keyframes</header>
+     <p>The <code>@keyframes</code> CSS at-rule controls the intermediate steps in a CSS animation sequence by defining styles for keyframes (or waypoints) along the animation sequence. This gives more control over the intermediate steps of the animation sequence than transitions.</p>
+     <p>To use keyframes, create a <code>@keyframes</code> rule with a name that is then used by the animation-name property to match an animation to its keyframe declaration. Each <code>@keyframes</code> rule contains a style list of keyframe selectors, which specify percentages along the animation when the keyframe occurs, and a block containing the styles for that keyframe.</p>
+
+<p>You can list the keyframe percentages in any order; they will be handled in the order they should occur.</p>
+     <strong>Valid keyframe lists</strong>
+     <p>If a keyframe rule doesn't specify the start or end states of the animation (that is, <code>0%</code>/<code>from</code> and <code>100%</code>/<code>to</code>, browsers will use the element's existing styles for the start/end states. This can be used to animate an element from its initial state and back.</p>
+     <pre><code>
+     @keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+</code></pre>
+<p>
+Properties that can't be animated in keyframe rules are ignored, but supported properties will still be animated.</p>
+     <strong>Resolving duplicates</strong>
+<p>If multiple keyframe sets exist for a given name, the last one encountered by the parser is used. <code>@keyframes</code> rules don't cascade, so animations never derive keyframes from more than one rule set.</p>
+
+     <p>If a given animation time offset is duplicated, the last keyframe in the <code>@keyframes</code> rule for that percentage is used for that frame. There's no cascading within a <code>@keyframes</code> rule if multiple keyframes specify the same percentage values.</p>
+   </section>
+    <section class="main-section" id="animation-name">
+      <header>animation-name</header>
+      <p>The <code>animation-name</code> CSS property specifies one or more animations that should be applied to an element. Each name indicates an <code>@keyframes</code> at-rule that defines the property values for the animation sequence.</p>
+     <pre><code>
+/* Single animation */
+animation-name: none;
+animation-name: test_05;
+animation-name: -specific;
+animation-name: sliding-vertically;
+
+/* Multiple animations */
+animation-name: test1, animation4;
+animation-name: none, -moz-specific, sliding;
+
+/* Global values */
+animation-name: initial
+animation-name: inherit
+animation-name: unset
+
+    </code></pre>
+      <h3>Values</h3>
+      <code><strong>none</strong></code>
+<p>A special keyword denoting no keyframes. It can be used to deactivate an animation without changing the ordering of the other identifiers, or to deactivate animations coming from the cascade.</p>
+      <code><strong>custom-ident</strong></code>
+<p>A name identifying the animation. This identifier is composed of a combination of case-insensitive letters a to z, numbers 0 to 9, underscores (_), and/or dashes (-). The first non-dash character must be a letter. Also, two dashes are forbidden at the beginning of the identifier. Furthermore, the identifier can't be none, unset, initial, or inherit.</p>
+   </section>
+    <section class="main-section" id="animation-duration">
+      <header>animation-duration</header>
+      <p>The <code>animation-duration</code> CSS property specifies the length of time that an animation should take to complete one cycle.</p>
+      <pre><code>
+/* Single animation */
+animation-duration: 6s;
+animation-duration: 120ms;
+
+/* Multiple animations */
+animation-duration: 1.64s, 15.22s;
+animation-duration: 10s, 35s, 230ms;
+
+</code></pre>
+      <p>The duration that an animation takes to complete one cycle. This may be specified in either seconds (s) or milliseconds (ms). The value must positive or zero and the unit is required. A value of 0s, which is the default value, indicates that no animation should occur.</p>
+    </section>
+    <section class="main-section" id="animation-timing-function">
+     <header>animation-timing-function</header>
+      <p>The <code>animation-timing-function</code> CSS property specifies how a CSS animation should progress over the duration of each cycle.</p>
+     <pre><code>
+/* Keyword values */
+animation-timing-function: ease;
+animation-timing-function: ease-in;
+animation-timing-function: ease-out;
+animation-timing-function: ease-in-out;
+animation-timing-function: linear;
+animation-timing-function: step-start;
+animation-timing-function: step-end;
+
+/* Function values */
+animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+animation-timing-function: steps(4, end);
+animation-timing-function: frames(10);
+
+/* Multiple animations */
+animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+
+/* Global values */
+animation-timing-function: inherit;
+animation-timing-function: initial;
+animation-timing-function: unset;
+
+</code></pre>
+      <p>Timing functions may be specified on individual keyframes in a <code>@keyframes</code> rule. If no animation-timing-function is specified on a keyframe, the corresponding value of animation-timing-function from the element to which the animation is applied is used for that keyframe.</p>
+
+<p>A keyframe's timing function is applied on a property-by-property basis from the keyframe on which it is specified until the next keyframe specifying that property, or until the end of the animation if there is no subsequent keyframe specifying that property. As a result, an animation-timing-function specified on the 100% or to keyframe will never be used.</p>
+    </section>
+    <section class="main-section" id="animation-delay">
+       <header>animation-delay</header>
+       <p>The <code>animation-delay</code> CSS property specifies when an animation should start. You can begin the animation at a future point in time, immediately and from its beginning, or immediately and partway through the animation cycle.
+</p>
+      <pre><code>
+/* Single animation */
+animation-delay: 3s;
+animation-delay: 0s;
+animation-delay: -1500ms;
+
+/* Multiple animations */
+animation-delay: 2.1s, 480ms;
+      </code></pre>
+      <p>The time offset, from the moment at which the animation is applied to the element, at which the animation should begin. This may be specified in either seconds (s) or milliseconds (ms). The unit is required.</p>
+<p>A positive value indicates that the animation should begin after the specified amount of time has elapsed. A value of 0s, which is the default, indicates that the animation should begin as soon as it's applied.</p>
+<p>A negative value causes the animation to begin immediately, but partway through its cycle. For example, if you specify -1s as the animation delay time, the animation will begin immediately but will start 1 second into the animation sequence. If you specify a negative value for the animation delay, but the starting value is implicit, the starting value is taken from the moment the animation is applied to the element.</p>
+    </section>
+    <section class="main-section" id="animation-iteration-count">
+      <header>animation-iteration-count</header>
+      <p>The <code>animation-iteration-count</code> CSS property specifies the number of times an animation cycle should be played before stopping. If multiple values are specified, each time the animation is played the next value in the list is used, cycling back to the first value after the last one is used.</p>
+      <pre><code>
+/* Keyword value */
+animation-iteration-count: infinite;
+
+/* number values */
+animation-iteration-count: 3;
+animation-iteration-count: 2.4;
+
+/* Multiple values */
+animation-iteration-count: 2, 0, infinite;
+
+     </code></pre>
+     <h3>Values</h3>
+      <code><strong>infinite</strong></code>
+     <p>The animation will repeat forever.</p>
+      <code><strong>number</strong></code>
+<p>The number of times the animation will repeat; this is 1 by default. You may specify non-integer values to play part of an animation cycle: for example, 0.5 will play half of the animation cycle. Negative values are invalid.</p>
+    </section>
+    <section class="main-section" id="animation-direction">
+      <header>animation-direction</header>
+      <p>The <code>animation-direction</code> CSS property specifies whether an animation should play forwards, backwards, or alternating back and forth.</p>
+      <pre><code>
+/* Single animation */
+animation-direction: normal;
+animation-direction: reverse;
+animation-direction: alternate;
+animation-direction: alternate-reverse;
+
+/* Multiple animations */
+animation-direction: normal, reverse;
+animation-direction: alternate, reverse, normal;
+
+/* Global values */
+animation-direction: inherit;
+animation-direction: initial;
+animation-direction: unset;
+
+</code></pre>
+      <h3>Values</h3>
+      <code><strong>normal</strong></code>
+<p>The animation plays forwards each cycle. In other words, each time the animation cycles, the animation will reset to the beginning state and start over again. This is the default value.</p>
+      <code><strong>reverse</strong></code>
+<p>The animation plays backwards each cycle. In other words, each time the animation cycles, the animation will reset to the end state and start over again. Animation steps are performed backwards, and timing functions are also reversed. For example, an ease-in timing function becomes ease-out.</p>
+      <code><strong>alternate</strong></code>
+<p>The animation reverses direction each cycle, with the first iteration being played forwards. The count to determine if a cycle is even or odd starts at one.</p>
+      <code><strong>alternate-reverse</strong></code>
+<p>The animation reverses direction each cycle, with the first iteration being played backwards. The count to determinate if a cycle is even or odd starts at one.</p>
+    </section>
+    <section class="main-section" id="animation-direction">
+      <header>animation-direction</header>
+      <p>The <code>animation-direction</code> CSS property specifies whether an animation should play forwards, backwards, or alternating back and forth.</p>
+      <pre><code>
+/* Single animation */
+animation-direction: normal;
+animation-direction: reverse;
+animation-direction: alternate;
+animation-direction: alternate-reverse;
+
+/* Multiple animations */
+animation-direction: normal, reverse;
+animation-direction: alternate, reverse, normal;
+
+/* Global values */
+animation-direction: inherit;
+animation-direction: initial;
+animation-direction: unset;
+
+</code></pre>
+    <h3>Values</h3>
+      <code><strong>normal</strong></code>
+     <p>The animation plays forwards each cycle. In other words, each time the animation cycles, the animation will reset to the beginning state and start over again. This is the default value.</p>
+      <code><strong>reverse</strong></code>
+<p> animation plays backwards each cycle. In other words, each time the animation cycles, the animation will reset to the end state and start over again. Animation steps are performed backwards, and timing functions are also reversed. For example, an ease-in timing function becomes ease-out.</p>
+      <code><strong>alternate</strong></code>
+<p>The animation reverses direction each cycle, with the first iteration being played forwards. The count to determine if a cycle is even or odd starts at one.</p>
+      <code><strong>alternate-reverse</strong></code>
+<p>The animation reverses direction each cycle, with the first iteration being played backwards. The count to determinate if a cycle is even or odd starts at one.</p>
+    </section>
+    <section class="main-section" id="animation-fill-mode">
+      <header>animation-fill-mode</header>
+      <p>The <code>animation-direction</code> CSS property specifies whether an animation should play forwards, backwards, or alternating back and forth.</p>
+      <pre><code>
+/* Single animation */
+animation-fill-mode: none;
+animation-fill-mode: forwards;
+animation-fill-mode: backwards;
+animation-fill-mode: both;
+
+/* Multiple animations */
+animation-fill-mode: none, backwards;
+animation-fill-mode: both, forwards, none;
+
+</code></pre>
+    </section>
+    <h3>Values</h3>
+    <code><strong>none</strong></code>
+<p>The animation will not apply any styles to the target when it's not executing. The element will instead be displayed using any other CSS rules applied to it. This is the default value.</p>
+    <code><strong>forwards</strong></code>
+<p>The target will retain the computed values set by the last keyframe encountered during execution. The last keyframe depends on the value of animation-direction and animation-iteration-count.</p>
+<code><strong>backwards</strong></code>
+<p>The animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period. The first relevant keyframe depends on the value of animation-direction.</p>
+<code><strong>both</strong></code>
+<p>The animation will follow the rules for both forwards and backwards, thus extending the animation properties in both directions.</p>
+   <section class="main-section" id="animation-play-state">
+     <header>animation-play-state</header>
+     <p>The animation-play-state CSS property specifies whether an animation is running or paused. In JavaScript, this can be queried to determine whether or not the animation is currently running. In addition, you can use JavaScript to set its value to pause or resume playback of an animation.
+</p>
+    <pre><code>
+/* Single animation */
+animation-play-state: running;
+animation-play-state: paused;
+
+/* Multiple animations */
+animation-play-state: paused, running, running;
+
+/* Global values */
+animation-play-state: inherit;
+animation-play-state: initial;
+animation-play-state: unset;
+
+</code></pre>
+<h3>Values</h3>
+<code><strong>running</strong></code>
+
+<p>The animation is currently playing.</p>
+<code><strong>paused</strong></code>
+<p>The animation is currently paused.</p>
+ </section>
+   <section class="main-section" id="animation_property">
+    <header>animation property</header>
+<p>The animation CSS property is a shorthand property for the various animation properties. It is often convenient to use the it to set all animation properties at once.</p>
+<pre><code>
+
+/* @keyframes duration | timing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
+animation: 3s ease-in 1s 2 reverse both paused slidein;
+
+/* @keyframes duration | timing-function | delay | name */
+animation: 3s linear 1s slidein;
+
+/* @keyframes duration | name */
+animation: 3s slidein;
+
+</code></pre>
+<p>The animation property is specified as one or more single animations, separated by commas.</p>
+
+<p>Each individual animation is specified as:</p>
+<ul>
+  <li>zero or one occurrences of the following values:</li>
+    <ul>
+      <li><code>single-transition-timing-function</code></li>
+      <li><code>single-animation-iteration-count</code></li>
+      <li><code>single-animation-direction</code></li>
+      <li><code>single-animation-fill-mode</code></li>
+      <li><code>single-animation-play-state</code></li>
+  </ul>
+  <li>an optional name for the animation, which may be none, a <code>custom-ident</code>, or a <code>string</code></li>
+  <li>zero, one, or two <code>time</code> values</li>
+</ul>
+<p>The order of values within each animation definition is important: the first value that can be parsed as a <code>time</code> is assigned to the <code>animation-duration</code>, and the second one is assigned to animation-delay.</p>
+
+<p>The order within each animation definition is also important for distinguishing <code>animation-name</code> values from other keywords. When parsed, keywords that are valid for properties other than <code>animation-name</code>, and whose values were not found earlier in the shorthand, must be accepted for those properties rather than for <code>animation-name</code>. Furthermore, when serialized, default values of other properties must be output in at least the cases necessary to distinguish an <code>animation-name</code> that could be a value of another property, and may be output in additional cases.</p>
+   </section>
+  </main>
+</body>
