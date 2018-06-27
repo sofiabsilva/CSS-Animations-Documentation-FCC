@@ -7,7 +7,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   color: #050709;
-  overflow:hidden;
+
 }
 #navbar {
   float: left;
@@ -21,6 +21,7 @@ body {
 #navbar header {
   text-align: center;
   color: #386975;
+  font-size: 1.2em;
 }
 .nav-link {
   display:block;
@@ -45,9 +46,9 @@ body {
 .nav-link:active {
   color: #386975;
 }
-#main-doc {
+#main-doc{
   /* for the cool scrolling effect! */
-  overflow: hidden;
+  overflow: scroll;
   scroll-behavior: smooth;
   height: 100vh;
 }
@@ -55,11 +56,16 @@ body {
   margin: 30px 40px 0 340px;
   margin-left: 340px;
   margin-right: 40px;
-
 }
 .main-section h2 {
   font-size: 30px;
   color: #386975;
+}
+.main-section a {
+  color: #386975;
+}
+.main-section a:visited {
+  color: #204a54;
 }
 pre, code {
   background-color: #B9CDD1;
@@ -75,11 +81,16 @@ p code, li code {
 footer {
   background-color: #B9CDD1;
   text-align: center;
-  margin-left: 300px;
-  margin-top: 40px;
   padding: 10px;
+  margin-left: 300px;
   font-size: 0.8em;
 }
 footer a {
   color: #386975;
+}
+footer a:visited {
+  color: #204a54;
+}
+@media screen and (max-width: 700px) {
+  
 }
