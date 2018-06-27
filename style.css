@@ -7,7 +7,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   color: #050709;
-
 }
 #navbar {
   float: left;
@@ -74,6 +73,7 @@ pre {
   border: solid 0.5px #386975;
   padding: 15px;
   border-radius: 10px;
+  white-space: pre-wrap;   
 }
 p code, li code {
   font-weight: bold;
@@ -92,5 +92,25 @@ footer a:visited {
   color: #204a54;
 }
 @media screen and (max-width: 700px) {
-  
+  #navbar {
+    width: 100%;
+    max-height: 200px;
+    position: static;
+    overflow: auto;
+    z-index: -10;
+    border-bottom: 1px solid #386975;
+    margin: 0;
+    font-size: 1em;
+  }
+  .main-section {
+    margin: auto;
+  }
+  #main-doc {
+    width: 94%;
+    margin: auto;
+  }
+  footer {
+    width: 100%;
+    margin: 0;
+  }
 }
