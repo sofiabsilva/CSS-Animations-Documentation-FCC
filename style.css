@@ -1,10 +1,85 @@
 /* coded by Sofia Silva */
-.main-section header {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  margin: 0;
+  background-color: #E6EDEE;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  color: #050709;
+  overflow:hidden;
+}
+#navbar {
+  float: left;
+  top: 0;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  background-color: #E6EDEE;
+  width: 300px;
+}
+#navbar header {
+  text-align: center;
+  color: #386975;
+}
+.nav-link {
+  display:block;
+  color: #050709;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 20px;
+  border-top: 1px solid #386975;
+  height: auto;
+}
+.nav-link:hover {
+  animation-name: background-hover;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes background-hover {
+  100% { 
+    background-color: #B9CDD1;
+    padding-left: 30px;
+  }
+}
+.nav-link:active {
+  color: #386975;
+}
+#main-doc {
+  /* for the cool scrolling effect! */
+  overflow: hidden;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+.main-section {
+  margin: 30px 40px 0 340px;
+  margin-left: 340px;
+  margin-right: 40px;
+
+}
+.main-section h2 {
   font-size: 30px;
+  color: #386975;
 }
 pre, code {
-  background-color: #dedede;
+  background-color: #B9CDD1;
 }
-p code {
+pre {
+  border: solid 0.5px #386975;
+  padding: 15px;
+  border-radius: 10px;
+}
+p code, li code {
   font-weight: bold;
+}
+footer {
+  background-color: #B9CDD1;
+  text-align: center;
+  margin-left: 300px;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 0.8em;
+}
+footer a {
+  color: #386975;
 }
