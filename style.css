@@ -16,6 +16,7 @@ body {
   overflow: auto;
   background-color: #E6EDEE;
   width: 300px;
+  z-index: 20;
 }
 #navbar header {
   text-align: center;
@@ -45,16 +46,29 @@ body {
 .nav-link:active {
   color: #386975;
 }
-#main-doc{
+#main-doc {
   /* for the cool scrolling effect! */
   overflow: scroll;
   scroll-behavior: smooth;
   height: 100vh;
 }
+.show-menu {
+  position: fixed;
+  top: 10px;
+  right: 3%;
+  font-size: 40px;
+  padding: 10px;
+  text-decoration: none;
+  color: #386975;
+  background-color: #EEE;
+  background-color: #EEEEEEB3;
+  visibility: hidden;
+}
 .main-section {
   margin: 30px 40px 0 340px;
   margin-left: 340px;
   margin-right: 40px;
+  z-index: -10;
 }
 .main-section h2 {
   font-size: 30px;
@@ -94,23 +108,41 @@ footer a:visited {
 @media screen and (max-width: 700px) {
   #navbar {
     width: 100%;
-    max-height: 200px;
-    position: static;
+    max-height: 180px;
+    position: relative;
     overflow: auto;
-    z-index: -10;
-    border-bottom: 1px solid #386975;
     margin: 0;
     font-size: 1em;
+    z-index: 20;
+    box-shadow: -2px 11px 43px -15px rgba(0,0,0,0.59);
+  }
+  #navbar header {
+    font-size: 1.1em;
+  }
+  .nav-link {
+    padding: 10px;
   }
   .main-section {
     margin: auto;
+    padding-top: 20px;
   }
   #main-doc {
     width: 94%;
+    overflow: auto;
     margin: auto;
+    margin-top: 80px;
+    scroll-behavior: smooth;
+    height: 100vh;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    display: none;
+}
+  .show-menu {
+  visibility: initial;
+  z-index: 0;
   }
   footer {
-    width: 100%;
     margin: 0;
   }
 }
