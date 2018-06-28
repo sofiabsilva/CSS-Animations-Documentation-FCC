@@ -16,7 +16,6 @@ body {
   overflow: auto;
   background-color: #E6EDEE;
   width: 300px;
-  z-index: 20;
 }
 #navbar header {
   text-align: center;
