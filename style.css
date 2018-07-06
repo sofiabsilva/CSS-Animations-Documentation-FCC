@@ -3,10 +3,14 @@
 
 body {
   margin: 0;
-  background-color: #E6EDEE;
+  background-color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
   color: #050709;
+  overflow: hidden;
+}
+#menu {
+  display: none;
 }
 #navbar {
   float: left;
@@ -33,7 +37,7 @@ body {
 }
 .nav-link:hover {
   animation-name: background-hover;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-fill-mode: forwards;
 }
 @keyframes background-hover {
@@ -45,24 +49,14 @@ body {
 .nav-link:active {
   color: #386975;
 }
-#main-doc {
+#page {
   /* for the cool scrolling effect! */
   overflow: scroll;
   scroll-behavior: smooth;
   height: 100vh;
+  overflow-x: hidden;
 }
-.show-menu {
-  position: fixed;
-  top: 10px;
-  right: 3%;
-  font-size: 40px;
-  padding: 10px;
-  text-decoration: none;
-  color: #386975;
-  background-color: #EEE;
-  background-color: #EEEEEEB3;
-  visibility: hidden;
-}
+
 .main-section {
   margin: 30px 40px 0 340px;
   margin-left: 340px;
@@ -80,7 +74,7 @@ body {
   color: #204a54;
 }
 pre, code {
-  background-color: #B9CDD1;
+  background-color: #E6EDEE;
 }
 pre {
   border: solid 0.5px #386975;
@@ -92,7 +86,7 @@ p code, li code {
   font-weight: bold;
 }
 footer {
-  background-color: #B9CDD1;
+  background-color: #E6EDEE;
   text-align: center;
   padding: 10px;
   margin-left: 300px;
@@ -107,13 +101,15 @@ footer a:visited {
 @media screen and (max-width: 700px) {
   #navbar {
     width: 100%;
-    max-height: 180px;
-    position: relative;
-    overflow: auto;
+    position: absolute;
+    top: 80px;
+    left:0;
     margin: 0;
+    height: initial;
     font-size: 1em;
-    z-index: 20;
-    box-shadow: -2px 11px 43px -15px rgba(0,0,0,0.59);
+    max-height: 0;
+    overflow: scroll;
+    z-index: 30;
   }
   #navbar header {
     font-size: 1.1em;
@@ -123,25 +119,48 @@ footer a:visited {
   }
   .main-section {
     margin: auto;
-    padding-top: 20px;
   }
-  #main-doc {
-    width: 94%;
+  #page {
+    padding: 4%;
     overflow: auto;
     margin: auto;
-    margin-top: 80px;
     scroll-behavior: smooth;
     height: 100vh;
-  }
-  ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    display: none;
-}
-  .show-menu {
-  visibility: initial;
-  z-index: 0;
   }
   footer {
     margin: 0;
   }
+  header h1 {
+    display:none;
+  }
+  #menu {
+    display: block;
+  }
+  input#menu {
+    display:none;
+  }
+  label {
+    font-size: 30px;
+    color: #386975;
+    cursor: pointer;
+    background: url("https://s15.postimg.cc/cpsibt28r/menu.png") no-repeat 2% 50%;
+    padding: 30px 0 30px 60px;
+    line-height: 1.5em;
+    transition: 0.3s;
+  }
+  input:checked~label {
+    background: url("https://s15.postimg.cc/uva23rbqz/error.png") no-repeat 2% 50%;
+  }
+  input:checked~#navbar {
+    max-height: 80%;
+    transition: 0.5s;
+  }
+  .back-to-top div{
+    background: url("https://s15.postimg.cc/9itty1tzv/play-button.png") no-repeat;
+    transform: rotate(-90deg);
+    width: 24px;
+    padding: 5px;
+    height: 24px;
+    cursor: pointer;
+  } 
 }
