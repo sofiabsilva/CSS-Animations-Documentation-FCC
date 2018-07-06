@@ -1,10 +1,13 @@
 <head>
  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+ <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="page">
+    <input type="checkbox" id="menu">
+    <label for="menu" id="top">CSS Animations</label>
     <nav id="navbar">
      <header><h1>CSS Animations</h1></header>
         <a href="#Introduction" class="nav-link">Introduction</a>
@@ -20,11 +23,11 @@
         <a href="#animation_property" class="nav-link">animation property</a>
     </nav>
   <main id="main-doc">
-    <a href="#navbar" class="show-menu fas fa-bars"></a>
     <section class="main-section" id="Introduction">
        <header><h2>Introduction</h2></header>
       <p>CSS Animations is a module of CSS that lets you animate the values of CSS properties over time, using keyframes. The behavior of these keyframe animations can be controlled by specifying their timing function, duration, their number of repetitions, and other attributes.</p>
        <p>The information in this doc should not be used alone, as some things have been left out. Refer to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target =“_blank”>MDN Web Docs</a> for complete CSS Animation guide with practical examples</p>
+      <a class="back-to-top" href="#top"><div></div></a>
    </section>
    <section class="main-section" id="Keyframes">
     <header><h2>Keyframes</h2></header>
@@ -54,6 +57,7 @@ Properties that can't be animated in keyframe rules are ignored, but supported p
 <p>If multiple keyframe sets exist for a given name, the last one encountered by the parser is used. <code>@keyframes</code> rules don't cascade, so animations never derive keyframes from more than one rule set.</p>
 
      <p>If a given animation time offset is duplicated, the last keyframe in the <code>@keyframes</code> rule for that percentage is used for that frame. There's no cascading within a <code>@keyframes</code> rule if multiple keyframes specify the same percentage values.</p>
+    <a class="back-to-top" href="#top"><div></div></a>
    </section>
     <section class="main-section" id="animation-name">
       <header><h2>animation-name</h2></header>
@@ -80,6 +84,7 @@ animation-name: unset
 <p>A special keyword denoting no keyframes. It can be used to deactivate an animation without changing the ordering of the other identifiers, or to deactivate animations coming from the cascade.</p>
       <code><strong>custom-ident</strong></code>
 <p>A name identifying the animation. This identifier is composed of a combination of case-insensitive letters a to z, numbers 0 to 9, underscores (_), and/or dashes (-). The first non-dash character must be a letter. Also, two dashes are forbidden at the beginning of the identifier. Furthermore, the identifier can't be none, unset, initial, or inherit.</p>
+   <a class="back-to-top" href="#top"><div></div></a>
    </section>
     <section class="main-section" id="animation-duration">
       <header><h2>animation-duration</h2></header>
@@ -95,6 +100,7 @@ animation-duration: 10s, 35s, 230ms;
 
 </code></pre>
       <p>The duration that an animation takes to complete one cycle. This may be specified in either seconds (s) or milliseconds (ms). The value must positive or zero and the unit is required. A value of 0s, which is the default value, indicates that no animation should occur.</p>
+     <a class="back-to-top" href="#top"><div></div></a>
     </section>
     <section class="main-section" id="animation-timing-function">
       <header><h2>animation-timing-function</h2></header>
@@ -126,6 +132,7 @@ animation-timing-function: unset;
       <p>Timing functions may be specified on individual keyframes in a <code>@keyframes</code> rule. If no animation-timing-function is specified on a keyframe, the corresponding value of animation-timing-function from the element to which the animation is applied is used for that keyframe.</p>
 
 <p>A keyframe's timing function is applied on a property-by-property basis from the keyframe on which it is specified until the next keyframe specifying that property, or until the end of the animation if there is no subsequent keyframe specifying that property. As a result, an animation-timing-function specified on the 100% or to keyframe will never be used.</p>
+    <a class="back-to-top" href="#top"><div></div></a>
     </section>
     <section class="main-section" id="animation-delay">
       <header><h2>animation-delay</h2></header>
@@ -143,6 +150,7 @@ animation-delay: 2.1s, 480ms;
       <p>The time offset, from the moment at which the animation is applied to the element, at which the animation should begin. This may be specified in either seconds (s) or milliseconds (ms). The unit is required.</p>
 <p>A positive value indicates that the animation should begin after the specified amount of time has elapsed. A value of 0s, which is the default, indicates that the animation should begin as soon as it's applied.</p>
 <p>A negative value causes the animation to begin immediately, but partway through its cycle. For example, if you specify -1s as the animation delay time, the animation will begin immediately but will start 1 second into the animation sequence. If you specify a negative value for the animation delay, but the starting value is implicit, the starting value is taken from the moment the animation is applied to the element.</p>
+    <a class="back-to-top" href="#top"><div></div></a>
     </section>
     <section class="main-section" id="animation-iteration-count">
       <header><h2>animation-iteration-count</h2></header>
@@ -164,6 +172,7 @@ animation-iteration-count: 2, 0, infinite;
      <p>The animation will repeat forever.</p>
       <code><strong>number</strong></code>
 <p>The number of times the animation will repeat; this is 1 by default. You may specify non-integer values to play part of an animation cycle: for example, 0.5 will play half of the animation cycle. Negative values are invalid.</p>
+    <a class="back-to-top" href="#top"><div></div></a>
     </section>
     <section class="main-section" id="animation-direction">
       <header><h2>animation-direction</h2></header>
@@ -194,6 +203,7 @@ animation-direction: unset;
 <p>The animation reverses direction each cycle, with the first iteration being played forwards. The count to determine if a cycle is even or odd starts at one.</p>
       <code><strong>alternate-reverse</strong></code>
 <p>The animation reverses direction each cycle, with the first iteration being played backwards. The count to determinate if a cycle is even or odd starts at one.</p>
+    <a class="back-to-top" href="#top"><div></div></a>
     </section>
     <section class="main-section" id="animation-fill-mode">
       <header><h2>animation-fill-mode</h2></header>
@@ -219,6 +229,7 @@ animation-fill-mode: both, forwards, none;
 <p>The animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period. The first relevant keyframe depends on the value of animation-direction.</p>
 <code><strong>both</strong></code>
 <p>The animation will follow the rules for both forwards and backwards, thus extending the animation properties in both directions.</p>
+     <a class="back-to-top" href="#top"><div></div></a>
     </section>
    <section class="main-section" id="animation-play-state">
      <header><h2>animation-play-state</h2></header>
@@ -244,7 +255,8 @@ animation-play-state: unset;
 <p>The animation is currently playing.</p>
 <code><strong>paused</strong></code>
 <p>The animation is currently paused.</p>
- </section>
+    <a class="back-to-top" href="#top"><div></div></a>
+    </section>
    <section class="main-section" id="animation_property">
      <header><h2>animation property</h2></header>
 <p>The animation CSS property is a shorthand property for the various animation properties. It is often convenient to use the it to set all animation properties at once.</p>
@@ -279,7 +291,20 @@ animation: 3s slidein;
 <p>The order of values within each animation definition is important: the first value that can be parsed as a <code>time</code> is assigned to the <code>animation-duration</code>, and the second one is assigned to animation-delay.</p>
 
 <p>The order within each animation definition is also important for distinguishing <code>animation-name</code> values from other keywords. When parsed, keywords that are valid for properties other than <code>animation-name</code>, and whose values were not found earlier in the shorthand, must be accepted for those properties rather than for <code>animation-name</code>. Furthermore, when serialized, default values of other properties must be output in at least the cases necessary to distinguish an <code>animation-name</code> that could be a value of another property, and may be output in additional cases.</p>
+     <a class="back-to-top" href="#top" alt="back to the top"><div></div></a>
    </section>
-   <footer>Coded by Sofia Silva | Content from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target =“_blank”>developer.mozilla.org</a></footer>
+   <footer>Coded by Sofia Silva | Content from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation" target =“_blank”>developer.mozilla.org</a> <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></footer>
   </main>
+  </div>
+ <script>
+  // when clicking the nav links, the menu closes, else it would stay open.
+const navLinks= document.querySelectorAll(".nav-link");
+
+function unCheck() {
+  const menu = document.getElementById("menu");
+  menu.checked = false;
+  console.log("unchecked")
+}
+navLinks.forEach((link) => {link.addEventListener('click', unCheck)});
+ </script>
 </body>
